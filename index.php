@@ -19,8 +19,7 @@ $stagiaires = $data->fetchAll(PDO::FETCH_ASSOC);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <title>Liste des CDA </title>
@@ -53,13 +52,14 @@ $stagiaires = $data->fetchAll(PDO::FETCH_ASSOC);
                 echo '<td>' . $stagiaire['age'] . '</td>';
                 echo '<td>' . $stagiaire['mail'] . '</td>';
                 echo '<td>  <a href="update.php?id='. $stagiaire["id"] .' ">Modifier le stagiaire</a> 
-                        |   <a href="">Supprimer le stagiaire</a></td>';
+                        |   <a href="delete.php?='.$stagiaire["id"] .' ">Supprimer le stagiaire</a> </td>';
                 echo '</tr>';
             }
         ?>
 
     </tbody>
 </table>
+<a href="delete.php?id=<?= $stagiaire['id'] ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce stagiaire ?')">Supprimer</a>
 
 
 <!--        --><?php
